@@ -16,6 +16,10 @@ public class PostmanEchoTest {
         .then()
                 .statusCode(200)
                 .body("data", equalTo("some data"))
-                ;
+                .body("headers.accept", equalTo("*/*"))
+                .body("headers.accept-encoding", equalTo("gzip,deflate"))
+                .body("headers.user-agent", equalTo("Apache-HttpClient/4.5.3 (Java/11.0.11)"))
+                .body("headers.host", equalTo("postman-echo.com"))
+        ;
     }
 }
